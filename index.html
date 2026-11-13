@@ -1,0 +1,603 @@
+<title>Hem och familjs julkalender</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Boka en egen lucka i Hem och familjs julkalender 2026. En annonsör per dag, 150 000 mottagare, 12 000 kr per lucka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<style>
+/* Layout: växlande gröna och krämvita band som i säljpresentationen; kalendern är sidans hjärta och bokningsformuläret dess slut. Medvetet ett enda färgtema. */
+:root{
+  --gran:#123B2E;      /* djup granskog, mörka band */
+  --gran-2:#1C4C3C;    /* luckor och kort på mörkt */
+  --gran-3:#2E6450;    /* linjer på mörkt */
+  --kram:#FBF5EA;      /* ljusa band */
+  --papper:#FFFDF8;    /* kort på ljust */
+  --linje:#E6DCC8;     /* linjer på ljust */
+  --guld:#D9A84E;      /* etiketter och stjärnor */
+  --guld-mork:#8A6420; /* guld som text på ljust */
+  --rod:#B8322A;       /* julröd accent och prisband */
+  --text:#123B2E;
+  --text-2:#4B5A52;
+  --text-ljus:#DCE6DF;
+  --display:'Playfair Display', Georgia, 'Times New Roman', serif;
+  --brod:'DM Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --mx:1180px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--kram);color:var(--text);font-family:var(--brod);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--guld);outline-offset:3px;border-radius:6px}
+
+.band{padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.inner{max-width:var(--mx);margin:0 auto;padding-block:clamp(56px,9vw,112px);display:flex;flex-direction:column;gap:clamp(32px,5vw,56px)}
+.mork{background:var(--gran);color:var(--kram)}
+.ljus{background:var(--kram);color:var(--text)}
+
+.etikett{font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rod)}
+.mork .etikett{color:var(--guld)}
+.rubrik{font-family:var(--display);font-weight:700;font-size:clamp(34px,5vw,60px);line-height:1.08}
+.ingress{font-size:clamp(18px,2vw,21px);color:var(--text-2);max-width:62ch}
+.mork .ingress{color:var(--text-ljus)}
+.huvud{display:flex;flex-direction:column;gap:14px}
+
+.knapp{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 17px/1 var(--brod);padding:18px 28px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;transition:transform .15s ease, background .15s ease}
+.knapp:hover{transform:translateY(-2px)}
+.knapp-rod{background:var(--rod);color:var(--kram)}
+.knapp-rod:hover{background:#9E2A23}
+.knapp-kontur{background:transparent;color:var(--kram);box-shadow:inset 0 0 0 2px var(--gran-3)}
+.knapp-kontur:hover{box-shadow:inset 0 0 0 2px var(--guld)}
+
+/* Toppmeny */
+.topp{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--gran);border-bottom:1px solid var(--gran-3);color:var(--kram)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--gran)}
+.topp .rad{max-width:var(--mx);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logga{font-family:var(--display);font-size:21px;font-weight:700;letter-spacing:.01em;text-decoration:none}
+.logga span{color:var(--guld)}
+.topp nav{display:flex;gap:24px;font-size:15px;font-weight:500}
+.topp nav a{text-decoration:none;color:var(--text-ljus)}
+.topp nav a:hover{color:var(--kram)}
+.topp .knapp{padding:12px 20px;font-size:15px}
+@media (max-width:820px){.topp nav{display:none}}
+
+/* Hero */
+.hero .inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:clamp(40px,6vw,80px);padding-block:clamp(56px,8vw,104px)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(46px,7.4vw,96px);line-height:1;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--guld)}
+.hero-text{display:flex;flex-direction:column;gap:28px;min-width:0}
+.hero .ingress{font-size:clamp(19px,2.2vw,23px)}
+.knappar{display:flex;flex-wrap:wrap;gap:14px}
+.fakta{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;color:var(--text-ljus)}
+.fakta b{color:var(--kram);font-weight:700}
+.streck{width:120px;height:5px;background:var(--rod)}
+
+/* Luckan i hero */
+.lucka-scen{position:relative;aspect-ratio:4/5;max-width:100%;width:100%;perspective:1400px}
+.lucka-ram{position:absolute;inset:0;border-radius:20px;background:var(--gran-2);border:1px solid var(--gran-3);overflow:hidden}
+.lucka-insida{position:absolute;inset:0;padding:clamp(22px,4vw,40px);display:flex;flex-direction:column;justify-content:space-between;background:var(--papper);color:var(--text)}
+.insida-topp{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2)}
+.insida-mitt{display:flex;flex-direction:column;gap:12px}
+.insida-mitt .stor{font-family:var(--display);font-size:clamp(30px,4vw,46px);font-weight:700;line-height:1.05}
+.insida-mitt p{color:var(--text-2);font-size:16px}
+.insida-cta{align-self:flex-start;background:var(--rod);color:var(--kram);font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px}
+.platshallare{border:2px dashed var(--linje);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--text-2);display:flex;gap:10px;align-items:center}
+.dorr{position:absolute;inset:0;transform-origin:left center;transition:transform 1.4s cubic-bezier(.6,.05,.2,1);transform:rotateY(-62deg);background:var(--rod);border-radius:20px;display:flex;align-items:center;justify-content:center;box-shadow:12px 0 40px rgba(0,0,0,.35);backface-visibility:hidden}
+.lucka-scen:hover .dorr,.lucka-scen.oppen .dorr{transform:rotateY(-78deg)}
+.lucka-scen.stangd .dorr{transform:rotateY(0)}
+.dorr-siffra{font-family:var(--display);font-size:clamp(110px,16vw,190px);font-weight:700;color:var(--kram);line-height:1}
+.dorr::after{content:"";position:absolute;right:22px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--guld);transform:translateY(-50%)}
+.stjarnor{position:absolute;pointer-events:none}
+
+@media (max-width:860px){
+  .hero .inner{grid-template-columns:1fr}
+  .lucka-scen{max-width:380px;aspect-ratio:1/1}
+}
+
+/* Steg */
+.steg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:0;counter-reset:steg}
+.steg li{background:var(--papper);border:1px solid var(--linje);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.steg li::before{counter-increment:steg;content:counter(steg);font-family:var(--display);font-size:52px;font-weight:700;color:var(--rod);line-height:1}
+.steg h3{font-size:22px}
+.steg p{color:var(--text-2)}
+.citat{border-top:1px solid var(--linje);padding-top:28px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(22px,2.8vw,30px);line-height:1.35;max-width:46ch}
+@media (max-width:820px){.steg{grid-template-columns:1fr}}
+
+/* Kalender */
+.kal-topp{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.kvar{display:flex;align-items:baseline;gap:10px;font-size:16px;color:var(--text-ljus)}
+.kvar b{font-family:var(--display);font-size:52px;line-height:1;color:var(--guld);font-variant-numeric:tabular-nums}
+.teckenforklaring{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--text-ljus)}
+.teckenforklaring span{display:inline-flex;align-items:center;gap:8px}
+.prick{width:12px;height:12px;border-radius:3px;display:inline-block}
+.p1{background:var(--guld)}.p2{background:var(--rod)}.p3{background:var(--kram)}
+.kalender{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(5px,1.2vw,14px)}
+.veckodag{text-align:center;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--guld);padding-bottom:4px}
+.dag{position:relative;aspect-ratio:1/1.05;min-width:0;border-radius:clamp(8px,1.2vw,14px);background:var(--gran-2);border:1px solid var(--gran-3);color:var(--kram);font:inherit;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:clamp(6px,1.3vw,14px);text-align:left;transition:transform .15s ease,border-color .15s ease,background .15s ease;overflow:hidden}
+.dag::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--periodfarg)}
+.dag[data-period="1"]{--periodfarg:var(--guld)}
+.dag[data-period="2"]{--periodfarg:var(--rod)}
+.dag[data-period="3"]{--periodfarg:var(--kram)}
+.dag .nr{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.4vw,40px);line-height:1}
+.dag .status{font-size:clamp(9px,1.1vw,13px);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-ljus)}
+.dag:hover:not([disabled]){transform:translateY(-3px);border-color:var(--guld)}
+.dag[aria-pressed="true"]{background:var(--rod);border-color:var(--rod)}
+.dag[aria-pressed="true"] .status{color:var(--kram)}
+.dag[disabled]{cursor:not-allowed;opacity:.42}
+.dag[disabled] .status{text-decoration:none}
+.dag.julafton{background:var(--rod);border-color:var(--rod)}
+.dag.julafton .status{color:var(--kram)}
+.dag.julafton[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--guld)}
+.tom{aspect-ratio:1/1.05}
+.kal-fot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:8px;border-top:1px solid var(--gran-3)}
+.valt{font-size:17px;color:var(--text-ljus);min-height:1.5em}
+.valt b{color:var(--kram)}
+
+/* Perioder */
+.perioder{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.period{background:var(--papper);border:1px solid var(--linje);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:10px;min-width:0;position:relative;overflow:hidden}
+.period::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--periodfarg)}
+.period .datum{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--datumfarg)}
+.period h3{font-size:24px}
+.period p{color:var(--text-2)}
+.period:nth-child(1){--periodfarg:var(--guld);--datumfarg:var(--guld-mork)}
+.period:nth-child(2){--periodfarg:var(--rod);--datumfarg:var(--rod)}
+.period:nth-child(3){--periodfarg:var(--gran);--datumfarg:var(--gran)}
+.not{font-size:16px;color:var(--text-2)}
+@media (max-width:820px){.perioder{grid-template-columns:1fr}}
+
+/* Målgrupp */
+.siffror{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--linje);border-bottom:1px solid var(--linje)}
+.siffra{padding:32px 28px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.siffra+.siffra{border-left:1px solid var(--linje)}
+.siffra b{font-family:var(--display);font-size:clamp(44px,6vw,72px);font-weight:700;line-height:1;color:var(--rod);font-variant-numeric:tabular-nums}
+.siffra span{color:var(--text-2)}
+@media (max-width:760px){.siffror{grid-template-columns:1fr}.siffra+.siffra{border-left:0;border-top:1px solid var(--linje)}}
+
+/* Ingår */
+.ingar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px}
+.ingar div{display:grid;grid-template-columns:40px 1fr;gap:4px 16px;padding:24px 0;border-top:1px solid var(--linje);min-width:0}
+.ingar svg{grid-row:span 2;width:32px;height:32px;color:var(--rod)}
+.ingar h3{font-size:20px}
+.ingar p{color:var(--text-2)}
+@media (max-width:760px){.ingar{grid-template-columns:1fr}}
+
+/* Pris */
+.prisband{background:var(--rod);color:var(--kram)}
+.prisband .etikett{color:#F6DCD5}
+.pris-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:end}
+.pris-stor{font-family:var(--display);font-weight:700;font-size:clamp(68px,12vw,150px);line-height:.95;font-variant-numeric:tabular-nums}
+.pris-under{font-size:clamp(18px,2vw,22px);color:#FBEAE5;margin-top:14px}
+.pris-delar{display:flex;flex-direction:column}
+.pris-delar div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:2px solid rgba(251,245,234,.35)}
+.pris-delar div:last-child{border-bottom:2px solid rgba(251,245,234,.35)}
+.pris-delar b{font-family:var(--display);font-size:clamp(26px,3vw,36px);font-weight:700;font-variant-numeric:tabular-nums}
+.pris-delar span{color:#FBEAE5;text-align:right}
+@media (max-width:820px){.pris-grid{grid-template-columns:1fr}}
+
+/* Case */
+.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.case{background:var(--papper);border:1px solid var(--linje);border-radius:16px;padding:36px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.case h3{font-family:var(--display);font-size:30px}
+.case p{color:var(--text-2)}
+.case-tal{display:flex;flex-wrap:wrap;gap:20px 48px;padding-top:18px;border-top:1px solid var(--linje)}
+.case-tal div{display:flex;flex-direction:column;gap:2px}
+.case-tal b{font-family:var(--display);font-size:46px;font-weight:700;color:var(--rod);line-height:1;font-variant-numeric:tabular-nums}
+.case-tal span{font-size:15px;color:var(--text-2)}
+.liten{font-size:15px;color:var(--text-2)}
+@media (max-width:820px){.case-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--linje)}
+.faq details{border-bottom:1px solid var(--linje)}
+.faq summary{list-style:none;cursor:pointer;padding:22px 0;font-weight:700;font-size:19px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:28px;line-height:.8;color:var(--rod);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding-bottom:22px;color:var(--text-2);max-width:68ch}
+
+/* Bokning */
+.bokning .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(32px,6vw,80px);align-items:start}
+.kontakt{display:flex;flex-direction:column;gap:22px;min-width:0}
+.kontaktkort{display:flex;flex-direction:column;gap:6px;padding:24px;border-radius:16px;background:var(--gran-2);border:1px solid var(--gran-3)}
+.kontaktkort .namn{font-family:var(--display);font-size:24px;font-weight:700}
+.kontaktkort .roll{color:var(--text-ljus);font-size:15px;margin-bottom:8px}
+.kontaktrad{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:17px}
+.kontaktrad span{user-select:all}
+.kopiera{font:600 13px var(--brod);background:transparent;color:var(--guld);border:1px solid var(--gran-3);border-radius:999px;padding:5px 12px;cursor:pointer}
+.kopiera:hover{border-color:var(--guld)}
+form{background:var(--kram);color:var(--text);border-radius:20px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:18px;min-width:0}
+.falt{display:flex;flex-direction:column;gap:6px;min-width:0}
+.falt.hel{grid-column:1/-1}
+label{font-size:14px;font-weight:700}
+input,select,textarea{font:inherit;font-size:16px;color:var(--text);background:var(--papper);border:1px solid var(--linje);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:96px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--rod);outline-offset:0;border-color:var(--rod)}
+form .knapp{grid-column:1/-1;justify-self:start}
+.fel{grid-column:1/-1;color:var(--rod);font-size:15px;font-weight:600}
+.klar{grid-column:1/-1;display:flex;flex-direction:column;gap:12px;background:var(--papper);border:1px solid var(--linje);border-radius:14px;padding:20px}
+.klar h3{font-family:var(--display);font-size:24px}
+.klar pre{margin:0;white-space:pre-wrap;font:15px/1.5 var(--brod);color:var(--text-2);background:var(--kram);border-radius:10px;padding:14px;max-height:260px;overflow:auto}
+.klar .knappar .knapp{padding:14px 22px;font-size:15px}
+.knapp-ljus{background:var(--gran);color:var(--kram)}
+@media (max-width:860px){.bokning .inner{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+footer{background:var(--gran);color:var(--text-ljus);border-top:1px solid var(--gran-3);font-size:14px}
+footer .rad{max-width:var(--mx);margin:0 auto;padding-block:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+
+<header class="topp band">
+  <div class="rad">
+    <a class="logga" href="#start">Hem och familj <span>·</span> Julkalendern</a>
+    <nav aria-label="Sidans delar">
+      <a href="#kalendern">Lediga luckor</a>
+      <a href="#malgrupp">Målgrupp</a>
+      <a href="#pris">Pris</a>
+      <a href="#fragor">Frågor</a>
+    </nav>
+    <a class="knapp knapp-rod" href="#boka">Boka en lucka</a>
+  </div>
+</header>
+
+<main>
+<section class="band mork hero" id="start">
+  <div class="inner">
+    <div class="hero-text">
+      <p class="etikett">Julkalendern 2026 · 2–24 december</p>
+      <div class="streck" aria-hidden="true"></div>
+      <h1>Äg en hel dag i <em>december</em></h1>
+      <p class="ingress">Hem och familjs nyhetsbrev blir en julkalender. Varje dag öppnar 150 000 mottagare en ny lucka – och bakom den finns bara ett erbjudande. Ert.</p>
+      <div class="knappar">
+        <a class="knapp knapp-rod" href="#kalendern">Se lediga luckor</a>
+        <a class="knapp knapp-kontur" href="#pris">12 000 kr per lucka</a>
+      </div>
+      <p class="fakta"><span><b>23</b> luckor</span><span><b>1</b> annonsör per dag</span><span><b>150 000</b> mottagare med opt-in</span></p>
+    </div>
+
+    <div class="lucka-scen stangd" id="heroLucka" aria-label="En kalenderlucka som öppnas och visar annonsörens erbjudande">
+      <svg class="stjarnor" viewBox="0 0 100 100" style="left:-14%;top:-10%;width:34%;height:34%" aria-hidden="true"><path fill="#D9A84E" d="M50 4 L55 45 L96 50 L55 55 L50 96 L45 55 L4 50 L45 45 Z"/></svg>
+      <svg class="stjarnor" viewBox="0 0 100 100" style="right:-8%;bottom:-6%;width:18%;height:18%;opacity:.7" aria-hidden="true"><path fill="#D9A84E" d="M50 4 L55 45 L96 50 L55 55 L50 96 L45 55 L4 50 L45 45 Z"/></svg>
+      <div class="lucka-ram">
+        <div class="lucka-insida">
+          <div class="insida-topp"><span>Lucka 7</span><span>Mån 7 dec</span></div>
+          <div class="insida-mitt">
+            <div class="platshallare"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>Er bild och logga</div>
+            <p class="stor">Ert erbjudande, ensamt i utskicket</p>
+            <p>Dagens lucka till 150 000 hushåll – ingen annan annonsör, inget brus.</p>
+          </div>
+          <span class="insida-cta">Er länk här</span>
+        </div>
+        <div class="dorr" aria-hidden="true"><span class="dorr-siffra">7</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band ljus" id="konceptet">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">Så fungerar det</p>
+      <h2 class="rubrik">En lucka, ett helt utskick</h2>
+    </div>
+    <ol class="steg">
+      <li><h3>Välj er dag</h3><p>Boka en lucka mellan 2 och 24 december. Varje datum säljs bara en gång.</p></li>
+      <li><h3>Äg hela utskicket</h3><p>Ert erbjudande är det enda i nyhetsbrevet den dagen, i kalenderns design.</p></li>
+      <li><h3>Mottagarna öppnar luckan</h3><p>150 000 hushåll väntar på dagens överraskning – och klickar vidare till er.</p></li>
+    </ol>
+    <p class="citat">Mottagarna vet att det kommer en ny lucka varje dag. Utskicket blir något man öppnar, inte något man rensar bort.</p>
+  </div>
+</section>
+
+<section class="band mork" id="kalendern">
+  <div class="inner">
+    <div class="kal-topp">
+      <div class="huvud">
+        <p class="etikett">Lediga luckor</p>
+        <h2 class="rubrik">Välj er dag i december</h2>
+      </div>
+      <p class="kvar"><b id="antalLediga">23</b><span>av 23 luckor lediga</span></p>
+    </div>
+    <div class="teckenforklaring" aria-hidden="true">
+      <span><i class="prick p1"></i>Julklappar · 2–9 dec</span>
+      <span><i class="prick p2"></i>Julbord och hem · 10–18 dec</span>
+      <span><i class="prick p3"></i>Sista minuten · 19–24 dec</span>
+    </div>
+    <div class="kalender" id="kalender" role="group" aria-label="Luckor i december 2026"></div>
+    <div class="kal-fot">
+      <p class="valt" id="valtText" aria-live="polite">Klicka på en ledig lucka för att välja datum.</p>
+      <a class="knapp knapp-rod" href="#boka" id="tillBokning">Gå till bokning</a>
+    </div>
+  </div>
+</section>
+
+<section class="band ljus" id="dagar">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">Vilken dag passar er</p>
+      <h2 class="rubrik">Välj dag efter vad ni säljer</h2>
+    </div>
+    <div class="perioder">
+      <article class="period"><p class="datum">2–9 december</p><h3>Julklappar</h3><p>E-handel, önskelistor, leksaker, böcker och upplevelser – när listorna skrivs.</p></article>
+      <article class="period"><p class="datum">10–18 december</p><h3>Julbord och hem</h3><p>Mat, dryck, dukning, inredning och dekorationer – när julen planeras hemma.</p></article>
+      <article class="period"><p class="datum">19–24 december</p><h3>Sista minuten</h3><p>Presentkort, prenumerationer, mellandagsrea och resor – allt som inte behöver levereras.</p></article>
+    </div>
+    <p class="not">Även välgörenhet, försäkringar och abonnemang passar. Julen är när familjen ses och tar beslut tillsammans.</p>
+  </div>
+</section>
+
+<section class="band ljus" id="malgrupp" style="border-top:1px solid var(--linje)">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">Målgruppen</p>
+      <h2 class="rubrik">Hushållen som handlar till hela familjens jul</h2>
+      <p class="ingress">Det är här julklapparna, julbordet, dekorationerna och mellandagsresan bestäms – och det är just i december de letar efter erbjudanden.</p>
+    </div>
+    <div class="siffror">
+      <div class="siffra"><b>150 000</b><span>mottagare per utskick, alla med opt-in</span></div>
+      <div class="siffra"><b>40+</b><span>med familj – intresse för mat, vin, hem och resor</span></div>
+      <div class="siffra"><b>ca 70 %</b><span>kvinnor, ofta de som planerar julen hemma</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band ljus" id="ingar" style="border-top:1px solid var(--linje)">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">I luckan</p>
+      <h2 class="rubrik">Det här ingår</h2>
+    </div>
+    <div class="ingar">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><h3>Exklusivt utskick</h3><p>Ni är ensam annonsör i nyhetsbrevet hela dagen.</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><circle cx="17" cy="9" r="2.6"/><path d="M16 14.6c2.6-.3 4.8 1.2 5.5 4.4"/></svg><h3>150 000 mottagare</h3><p>Hela Hem och familjs databas, alla med opt-in.</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4"/><rect x="12" y="13" width="5" height="4.5" rx="1"/></svg><h3>Julkalender-design</h3><p>Ert erbjudande presenteras som dagens lucka.</p></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3.5 20.5h17M6.5 17v-5M11.5 17V8M16.5 17v-3M6.5 7.5l5-3.5 5 3"/></svg><h3>Spårning och rapport</h3><p>UTM-taggade länkar och rapport efter utskicket.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band prisband" id="pris">
+  <div class="inner">
+    <p class="etikett">Priset</p>
+    <div class="pris-grid">
+      <div>
+        <p class="pris-stor">12 000 kr</p>
+        <p class="pris-under">per lucka – fast pris, exkl. moms. Inga uppstartsavgifter.</p>
+      </div>
+      <div class="pris-delar">
+        <div><b>150 000</b><span>mottagare i ert eget utskick</span></div>
+        <div><b>8 öre</b><span>per mottagare</span></div>
+        <div><b>23 luckor</b><span>en per dag, 2–24 december</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band ljus" id="case">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">Kanalen levererar</p>
+      <h2 class="rubrik">Varumärken som redan värvar i Hem och familj</h2>
+    </div>
+    <div class="case-grid">
+      <article class="case">
+        <h3>Verisure</h3>
+        <p>Sommarkampanj under två månader: 2 eDR med resend, SMS och Meta.</p>
+        <div class="case-tal">
+          <div><b>4 800</b><span>klick, 20 % över garantin</span></div>
+          <div><b>122</b><span>nya kunder</span></div>
+        </div>
+      </article>
+      <article class="case">
+        <h3>Fribrevsbolaget</h3>
+        <p>Ett eDR i månaden under tolv månader.</p>
+        <div class="case-tal">
+          <div><b>3 000</b><span>varma leads av 15 000 klick</span></div>
+          <div><b>89</b><span>nya kunder</span></div>
+        </div>
+      </article>
+    </div>
+    <p class="liten">Casen gäller kampanjer i Hem och familj under året. Julkalendern är ny för 2026. Fler annonsörer i kanalen: Fortum.</p>
+  </div>
+</section>
+
+<section class="band ljus" id="fragor" style="border-top:1px solid var(--linje)">
+  <div class="inner">
+    <div class="huvud">
+      <p class="etikett">Frågor och svar</p>
+      <h2 class="rubrik">Bra att veta innan ni bokar</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Vad behöver vi skicka in?</summary><p>Erbjudande, rubrik, kort text, en bild eller logga och länken mottagarna ska till. Vi sätter det i kalenderns design och UTM-taggar länken åt er.</p></details>
+      <details><summary>När ska materialet vara klart?</summary><p>Senast 5 dagar före ert utskick. Därför stänger varje lucka för bokning 5 dagar före sitt datum.</p></details>
+      <details><summary>Kan vi boka flera luckor?</summary><p>Ja. Många vill synas både tidigt i december och i sista minuten. Ange alla datum ni vill ha i bokningen.</p></details>
+      <details><summary>Vad händer om vårt datum redan är bokat?</summary><p>Varje dag säljs bara en gång, först till kvarn. Ange gärna ett reservdatum så kan vi bekräfta direkt.</p></details>
+      <details><summary>Får vi veta hur det gick?</summary><p>Ja, ni får en rapport efter utskicket. Med UTM-taggarna ser ni också trafiken i er egen analys.</p></details>
+      <details><summary>Är mottagarna samtyckta?</summary><p>Alla 150 000 mottagare har lämnat opt-in via Hem och familj.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band mork bokning" id="boka">
+  <div class="inner">
+    <div class="kontakt">
+      <div class="huvud">
+        <p class="etikett">Boka er lucka</p>
+        <h2 class="rubrik">Tre steg till julafton</h2>
+        <p class="ingress">Välj datum, signera ordern och skicka materialet senast 5 dagar före er dag. Luckan är er när ordern är bekräftad.</p>
+      </div>
+      <div class="kontaktkort">
+        <p class="namn">Malin Andersson</p>
+        <p class="roll">Delägare/VD · CM Nordic</p>
+        <p class="kontaktrad"><span id="epost">malin@cmnordic.se</span><button class="kopiera" type="button" data-kopiera="epost">Kopiera</button></p>
+        <p class="kontaktrad"><span id="tel">+46 70 483 65 73</span><button class="kopiera" type="button" data-kopiera="tel">Kopiera</button></p>
+      </div>
+    </div>
+
+    <form id="bokningsform" novalidate>
+      <div class="falt"><label for="foretag">Företag</label><input id="foretag" name="foretag" autocomplete="organization" required></div>
+      <div class="falt"><label for="namn">Ert namn</label><input id="namn" name="namn" autocomplete="name" required></div>
+      <div class="falt"><label for="mejl">E-post</label><input id="mejl" name="mejl" type="email" autocomplete="email" required></div>
+      <div class="falt"><label for="telefon">Telefon</label><input id="telefon" name="telefon" type="tel" autocomplete="tel"></div>
+      <div class="falt"><label for="datum">Önskat datum</label><select id="datum" name="datum" required></select></div>
+      <div class="falt"><label for="reserv">Reservdatum</label><select id="reserv" name="reserv"></select></div>
+      <div class="falt hel"><label for="meddelande">Vad vill ni erbjuda? <span style="font-weight:400;color:var(--text-2)">(valfritt)</span></label><textarea id="meddelande" name="meddelande" placeholder="T.ex. 20 % på julklappar, fri frakt, kostnadsfri provperiod …"></textarea></div>
+      <p class="fel" id="fel" hidden></p>
+      <button class="knapp knapp-rod" type="submit">Skicka bokningsförfrågan</button>
+      <div class="klar" id="klar" hidden>
+        <h3>Förfrågan är klar att skickas</h3>
+        <p>Skicka texten till malin@cmnordic.se – kopiera den eller öppna den i ert e-postprogram. Malin bekräftar att datumet är ledigt.</p>
+        <pre id="sammanfattning"></pre>
+        <div class="knappar">
+          <button class="knapp knapp-ljus" type="button" id="kopieraText">Kopiera texten</button>
+          <a class="knapp knapp-rod" id="mejlLank" href="#">Öppna i e-post</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="band">
+  <div class="rad">
+    <span>Hem och familj ägs av Creative Marketing Nordic AB · hemochfamilj.se</span>
+    <span>Julkalendern 2026 · Alla priser exkl. moms</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Uppdatera här när luckor säljs: lägg till datumet (2–24) i listan. */
+  var BOKADE = [];
+
+  var AR = 2026, MAN = 11; /* december */
+  var VECKODAGAR = ['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
+  var LANGA = ['söndag','måndag','tisdag','onsdag','torsdag','fredag','lördag'];
+  var nu = new Date();
+
+  function period(d){ return d <= 9 ? 1 : d <= 18 ? 2 : 3; }
+  function status(d){
+    if (BOKADE.indexOf(d) !== -1) return 'bokad';
+    var sista = new Date(AR, MAN, d - 5, 23, 59, 59);
+    if (nu > sista) return 'stängd';
+    return 'ledig';
+  }
+  function etikett(d){
+    var wd = new Date(AR, MAN, d).getDay();
+    return LANGA[wd] + ' ' + d + ' december';
+  }
+
+  var kal = document.getElementById('kalender');
+  VECKODAGAR.forEach(function(v){
+    var p = document.createElement('p'); p.className = 'veckodag'; p.textContent = v; kal.appendChild(p);
+  });
+  var forsta = (new Date(AR, MAN, 2).getDay() + 6) % 7;
+  for (var i = 0; i < forsta; i++){ var t = document.createElement('div'); t.className = 'tom'; kal.appendChild(t); }
+
+  var lediga = 0, valt = null, knappar = {};
+  for (var d = 2; d <= 24; d++){
+    var s = status(d);
+    if (s === 'ledig') lediga++;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dag' + (d === 24 ? ' julafton' : '');
+    b.dataset.period = period(d); b.dataset.dag = d;
+    b.setAttribute('aria-pressed','false');
+    b.setAttribute('aria-label', 'Lucka ' + d + ', ' + etikett(d) + ', ' + s);
+    b.innerHTML = '<span class="nr">' + d + '</span><span class="status">' + (d === 24 && s === 'ledig' ? 'Julafton' : s) + '</span>';
+    if (s !== 'ledig') b.disabled = true;
+    b.addEventListener('click', function(){ valj(parseInt(this.dataset.dag,10), true); });
+    knappar[d] = b; kal.appendChild(b);
+  }
+  document.getElementById('antalLediga').textContent = lediga;
+
+  var selDatum = document.getElementById('datum'), selReserv = document.getElementById('reserv');
+  function fyll(sel, forsta){
+    sel.innerHTML = '';
+    var o = document.createElement('option'); o.value = ''; o.textContent = forsta; sel.appendChild(o);
+    for (var d = 2; d <= 24; d++){
+      if (status(d) !== 'ledig') continue;
+      var op = document.createElement('option'); op.value = d; op.textContent = 'Lucka ' + d + ' – ' + etikett(d); sel.appendChild(op);
+    }
+  }
+  fyll(selDatum, 'Välj lucka'); fyll(selReserv, 'Inget reservdatum');
+
+  function valj(d, franKalender){
+    if (valt && knappar[valt]) knappar[valt].setAttribute('aria-pressed','false');
+    valt = d;
+    var txt = document.getElementById('valtText');
+    if (d && knappar[d]){
+      knappar[d].setAttribute('aria-pressed','true');
+      txt.innerHTML = 'Ni har valt <b>lucka ' + d + '</b> – ' + etikett(d) + '.';
+      selDatum.value = String(d);
+    } else {
+      txt.textContent = 'Klicka på en ledig lucka för att välja datum.';
+    }
+  }
+  selDatum.addEventListener('change', function(){ valj(this.value ? parseInt(this.value,10) : null); });
+
+  /* Luckan i hero öppnas en gång vid start */
+  var hero = document.getElementById('heroLucka');
+  var lugn = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (lugn) { hero.classList.remove('stangd'); }
+  else { setTimeout(function(){ hero.classList.remove('stangd'); }, 500); }
+
+  function kopiera(text, knapp){
+    var aterstall = knapp.textContent;
+    function klart(){ knapp.textContent = 'Kopierat'; setTimeout(function(){ knapp.textContent = aterstall; }, 1800); }
+    try {
+      navigator.clipboard.writeText(text).then(klart, function(){ markera(knapp); });
+    } catch(e){ markera(knapp); }
+  }
+  function markera(knapp){
+    var el = knapp.previousElementSibling && knapp.previousElementSibling.tagName === 'SPAN' ? knapp.previousElementSibling : document.getElementById('sammanfattning');
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    knapp.textContent = 'Markerat – tryck Ctrl/Cmd+C';
+  }
+  document.querySelectorAll('[data-kopiera]').forEach(function(k){
+    k.addEventListener('click', function(){ kopiera(document.getElementById(k.dataset.kopiera).textContent, k); });
+  });
+
+  var form = document.getElementById('bokningsform');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fel = document.getElementById('fel');
+    var f = function(id){ return document.getElementById(id).value.trim(); };
+    var saknas = [];
+    if (!f('foretag')) saknas.push('företag');
+    if (!f('namn')) saknas.push('namn');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f('mejl'))) saknas.push('en giltig e-postadress');
+    if (!f('datum')) saknas.push('önskat datum');
+    if (saknas.length){
+      fel.textContent = 'Fyll i ' + saknas.join(', ') + ' så att Malin kan bekräfta er lucka.';
+      fel.hidden = false; return;
+    }
+    fel.hidden = true;
+    var rader = [
+      'Hej Malin!', '',
+      'Vi vill boka en lucka i Hem och familjs julkalender 2026.', '',
+      'Företag: ' + f('foretag'),
+      'Kontaktperson: ' + f('namn'),
+      'E-post: ' + f('mejl'),
+      'Telefon: ' + (f('telefon') || '–'),
+      'Önskat datum: lucka ' + f('datum') + ' (' + etikett(parseInt(f('datum'),10)) + ')',
+      'Reservdatum: ' + (f('reserv') ? 'lucka ' + f('reserv') + ' (' + etikett(parseInt(f('reserv'),10)) + ')' : '–')
+    ];
+    if (f('meddelande')) rader.push('', 'Erbjudande: ' + f('meddelande'));
+    var text = rader.join('\n');
+    document.getElementById('sammanfattning').textContent = text;
+    document.getElementById('mejlLank').href = 'mailto:malin@cmnordic.se?subject=' +
+      encodeURIComponent('Bokning julkalendern – lucka ' + f('datum') + ' – ' + f('foretag')) +
+      '&body=' + encodeURIComponent(text);
+    var klar = document.getElementById('klar');
+    klar.hidden = false;
+    klar.scrollIntoView({behavior: lugn ? 'auto' : 'smooth', block:'nearest'});
+  });
+  document.getElementById('kopieraText').addEventListener('click', function(){
+    kopiera(document.getElementById('sammanfattning').textContent, this);
+  });
+})();
+</script>
