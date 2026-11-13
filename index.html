@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#123B2E">
+<meta property="og:title" content="Hem och familjs julkalender 2026">
+<meta property="og:description" content="Äg en hel dag i december. En annonsör per lucka, 150 000 mottagare, 12 000 kr exkl. moms.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
 <title>Hem och familjs julkalender</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Boka en egen lucka i Hem och familjs julkalender 2026. En annonsör per dag, 150 000 mottagare, 12 000 kr per lucka.">
@@ -26,6 +35,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:68px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 body{background:var(--kram);color:var(--text);font-family:var(--brod);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
 h1,h2,h3{margin:0;text-wrap:balance}
@@ -58,11 +68,15 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .topp .rad{max-width:var(--mx);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
 .logga{font-family:var(--display);font-size:21px;font-weight:700;letter-spacing:.01em;text-decoration:none}
 .logga span{color:var(--guld)}
+.logga .tillagg{color:var(--kram)}
+.logga .tillagg span{color:var(--guld)}
 .topp nav{display:flex;gap:24px;font-size:15px;font-weight:500}
 .topp nav a{text-decoration:none;color:var(--text-ljus)}
 .topp nav a:hover{color:var(--kram)}
 .topp .knapp{padding:12px 20px;font-size:15px}
 @media (max-width:820px){.topp nav{display:none}}
+.topp .knapp{white-space:nowrap}
+@media (max-width:520px){.logga{font-size:18px}.logga .tillagg{display:none}.topp .knapp{padding:11px 16px;font-size:14px}}
 
 /* Hero */
 .hero .inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:center;gap:clamp(40px,6vw,80px);padding-block:clamp(56px,8vw,104px)}
@@ -78,24 +92,27 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* Luckan i hero */
 .lucka-scen{position:relative;aspect-ratio:4/5;max-width:100%;width:100%;perspective:1400px}
 .lucka-ram{position:absolute;inset:0;border-radius:20px;background:var(--gran-2);border:1px solid var(--gran-3);overflow:hidden}
-.lucka-insida{position:absolute;inset:0;padding:clamp(22px,4vw,40px);display:flex;flex-direction:column;justify-content:space-between;background:var(--papper);color:var(--text)}
+.lucka-insida{position:absolute;inset:0;padding:clamp(22px,4vw,40px);padding-left:calc(clamp(22px,4vw,40px) + 30px);display:flex;flex-direction:column;justify-content:space-between;background:var(--papper);color:var(--text)}
 .insida-topp{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-2)}
 .insida-mitt{display:flex;flex-direction:column;gap:12px}
 .insida-mitt .stor{font-family:var(--display);font-size:clamp(30px,4vw,46px);font-weight:700;line-height:1.05}
 .insida-mitt p{color:var(--text-2);font-size:16px}
 .insida-cta{align-self:flex-start;background:var(--rod);color:var(--kram);font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px}
 .platshallare{border:2px dashed var(--linje);border-radius:12px;padding:12px 16px;font-size:13px;color:var(--text-2);display:flex;gap:10px;align-items:center}
-.dorr{position:absolute;inset:0;transform-origin:left center;transition:transform 1.4s cubic-bezier(.6,.05,.2,1);transform:rotateY(-62deg);background:var(--rod);border-radius:20px;display:flex;align-items:center;justify-content:center;box-shadow:12px 0 40px rgba(0,0,0,.35);backface-visibility:hidden}
-.lucka-scen:hover .dorr,.lucka-scen.oppen .dorr{transform:rotateY(-78deg)}
+.dorr{position:absolute;inset:0;transform-origin:left center;transition:transform 1.4s cubic-bezier(.6,.05,.2,1);transform:rotateY(-84deg);background:var(--rod);border-radius:20px;display:flex;align-items:center;justify-content:center;box-shadow:12px 0 40px rgba(0,0,0,.35);backface-visibility:hidden}
+.lucka-scen:hover .dorr,.lucka-scen.oppen .dorr{transform:rotateY(-88deg)}
 .lucka-scen.stangd .dorr{transform:rotateY(0)}
+.lucka-scen:not(.stangd) .dorr-siffra{opacity:0;transition:opacity .5s ease .7s}
 .dorr-siffra{font-family:var(--display);font-size:clamp(110px,16vw,190px);font-weight:700;color:var(--kram);line-height:1}
 .dorr::after{content:"";position:absolute;right:22px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--guld);transform:translateY(-50%)}
 .stjarnor{position:absolute;pointer-events:none}
+.hero{overflow:hidden}
 
-@media (max-width:860px){
+@media (max-width:700px){
   .hero .inner{grid-template-columns:1fr}
-  .lucka-scen{max-width:380px;aspect-ratio:1/1}
+  .lucka-scen{max-width:360px;aspect-ratio:1/1;margin-inline:auto}
 }
+@media (max-width:480px){.hero .knappar .knapp{flex:1 1 100%}}
 
 /* Steg */
 .steg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:0;counter-reset:steg}
@@ -104,7 +121,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .steg h3{font-size:22px}
 .steg p{color:var(--text-2)}
 .citat{border-top:1px solid var(--linje);padding-top:28px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(22px,2.8vw,30px);line-height:1.35;max-width:46ch}
-@media (max-width:820px){.steg{grid-template-columns:1fr}}
+@media (max-width:700px){.steg{grid-template-columns:1fr}}
+@media (min-width:701px) and (max-width:1000px){.steg li,.period{padding:24px}}
 
 /* Kalender */
 .kal-topp{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
@@ -132,6 +150,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .dag.julafton .status{color:var(--kram)}
 .dag.julafton[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--guld)}
 .tom{aspect-ratio:1/1.05}
+@media (max-width:560px){.dag{justify-content:center;align-items:center;padding:4px}.dag .status{display:none}.dag .nr{font-size:clamp(18px,5.4vw,26px)}.veckodag{font-size:11px;letter-spacing:.06em}}
+@media (hover:none){.dag:hover:not([disabled]){transform:none;border-color:var(--gran-3)}}
 .kal-fot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:8px;border-top:1px solid var(--gran-3)}
 .valt{font-size:17px;color:var(--text-ljus);min-height:1.5em}
 .valt b{color:var(--kram)}
@@ -147,7 +167,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .period:nth-child(2){--periodfarg:var(--rod);--datumfarg:var(--rod)}
 .period:nth-child(3){--periodfarg:var(--gran);--datumfarg:var(--gran)}
 .not{font-size:16px;color:var(--text-2)}
-@media (max-width:820px){.perioder{grid-template-columns:1fr}}
+@media (max-width:700px){.perioder{grid-template-columns:1fr}}
 
 /* Målgrupp */
 .siffror{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--linje);border-bottom:1px solid var(--linje)}
@@ -155,7 +175,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .siffra+.siffra{border-left:1px solid var(--linje)}
 .siffra b{font-family:var(--display);font-size:clamp(44px,6vw,72px);font-weight:700;line-height:1;color:var(--rod);font-variant-numeric:tabular-nums}
 .siffra span{color:var(--text-2)}
-@media (max-width:760px){.siffror{grid-template-columns:1fr}.siffra+.siffra{border-left:0;border-top:1px solid var(--linje)}}
+@media (max-width:600px){.siffror{grid-template-columns:1fr}.siffra+.siffra{border-left:0;border-top:1px solid var(--linje)}}
 
 /* Ingår */
 .ingar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 48px}
@@ -163,7 +183,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .ingar svg{grid-row:span 2;width:32px;height:32px;color:var(--rod)}
 .ingar h3{font-size:20px}
 .ingar p{color:var(--text-2)}
-@media (max-width:760px){.ingar{grid-template-columns:1fr}}
+@media (max-width:600px){.ingar{grid-template-columns:1fr}}
 
 /* Pris */
 .prisband{background:var(--rod);color:var(--kram)}
@@ -176,7 +196,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pris-delar div:last-child{border-bottom:2px solid rgba(251,245,234,.35)}
 .pris-delar b{font-family:var(--display);font-size:clamp(26px,3vw,36px);font-weight:700;font-variant-numeric:tabular-nums}
 .pris-delar span{color:#FBEAE5;text-align:right}
-@media (max-width:820px){.pris-grid{grid-template-columns:1fr}}
+@media (max-width:700px){.pris-grid{grid-template-columns:1fr}}
+.pris-delar b{white-space:nowrap}
 
 /* Case */
 .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
@@ -188,7 +209,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .case-tal b{font-family:var(--display);font-size:46px;font-weight:700;color:var(--rod);line-height:1;font-variant-numeric:tabular-nums}
 .case-tal span{font-size:15px;color:var(--text-2)}
 .liten{font-size:15px;color:var(--text-2)}
-@media (max-width:820px){.case-grid{grid-template-columns:1fr}}
+@media (max-width:640px){.case-grid{grid-template-columns:1fr}.case{padding:28px}}
 
 /* FAQ */
 .faq{display:flex;flex-direction:column;border-top:1px solid var(--linje)}
@@ -223,16 +244,19 @@ form .knapp{grid-column:1/-1;justify-self:start}
 .klar pre{margin:0;white-space:pre-wrap;font:15px/1.5 var(--brod);color:var(--text-2);background:var(--kram);border-radius:10px;padding:14px;max-height:260px;overflow:auto}
 .klar .knappar .knapp{padding:14px 22px;font-size:15px}
 .knapp-ljus{background:var(--gran);color:var(--kram)}
-@media (max-width:860px){.bokning .inner{grid-template-columns:1fr}}
+@media (max-width:760px){.bokning .inner{grid-template-columns:1fr}}
 @media (max-width:520px){form{grid-template-columns:1fr}}
 
 footer{background:var(--gran);color:var(--text-ljus);border-top:1px solid var(--gran-3);font-size:14px}
 footer .rad{max-width:var(--mx);margin:0 auto;padding-block:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </style>
+</head>
+<body>
+
 
 <header class="topp band">
   <div class="rad">
-    <a class="logga" href="#start">Hem och familj <span>·</span> Julkalendern</a>
+    <a class="logga" href="#start">Hem och familj<span class="tillagg"> <span>·</span> Julkalendern</span></a>
     <nav aria-label="Sidans delar">
       <a href="#kalendern">Lediga luckor</a>
       <a href="#malgrupp">Målgrupp</a>
@@ -601,3 +625,6 @@ footer .rad{max-width:var(--mx);margin:0 auto;padding-block:28px;display:flex;fl
   });
 })();
 </script>
+
+</body>
+</html>
